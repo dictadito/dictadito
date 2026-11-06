@@ -16,3 +16,6 @@
 *.woff binary
 *.woff2 binary
 *.pdf binary
+
+# Archivo que arma npm solo: GitHub lo muestra plegado en los pull requests.
+package-lock.json linguist-generated=true

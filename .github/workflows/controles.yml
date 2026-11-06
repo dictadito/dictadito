@@ -1,6 +1,7 @@
 # Controles automáticos: corren en cada pull request a staging o a main, y cuando algo entra a esas ramas.
-# Los nombres de los jobs (check, secretos, reglas-del-pull-request) son los que se marcan como
-# obligatorios en las reglas de las ramas (docs/CONFIGURACION-GITHUB.md, paso 10). Si cambian acá, cambian allá.
+# Los nombres de los jobs (check y secretos) son los que se marcan como obligatorios en las reglas de las
+# ramas (docs/CONFIGURACION-GITHUB.md, paso 3). Si cambian acá, cambian allá. El tercer control obligatorio,
+# reglas-del-pull-request, está en reglas-del-pull-request.yml.
 name: Controles automáticos
 
 on:
@@ -53,34 +54,3 @@ jobs:
           tar -xzf "$archivo" gitleaks
       - name: Buscar claves en toda la historia
         run: ./gitleaks git --redact --no-banner --verbose --config .gitleaks.toml .
-
-  reglas-del-pull-request:
-    name: reglas-del-pull-request
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: 'Título con el formato "tipo: qué cambió"'
-        env:
-          TITULO: ${{ github.event.pull_request.title }}
-        run: |
-          if printf '%s' "$TITULO" | grep -Eq '^(feat|fix|docs|test|refactor|chore)(\([a-z0-9-]+\))?: .+'; then
-            echo "Título OK: $TITULO"
-          else
-            echo "::error::El título tiene que ser 'tipo: qué cambió' (feat, fix, docs, test, refactor o chore). Es lo que queda como commit en staging. Ver docs/COMO-TRABAJAMOS.md."
-            exit 1
-          fi
-      - name: A main solo desde staging, y ramas con nombre de tarea
-        env:
-          BASE: ${{ github.event.pull_request.base.ref }}
-          RAMA: ${{ github.event.pull_request.head.ref }}
-        run: |
-          if [ "$BASE" = "main" ] && [ "$RAMA" != "staging" ]; then
-            echo "::error::A main solo se llega desde staging. Este pull request sale de '$RAMA': cambiá la base a staging."
-            exit 1
-          fi
-          if [ "$BASE" = "staging" ] && ! printf '%s' "$RAMA" | grep -Eq '^(feature|fix|chore|docs)/[a-z0-9][a-z0-9._-]*$'; then
-            echo "::error::Las ramas de trabajo se llaman feature/, fix/, chore/ o docs/ más el tema, en minúscula y con guiones. Esta es '$RAMA'."
-            exit 1
-          fi
-          echo "Ramas OK: $RAMA → $BASE"

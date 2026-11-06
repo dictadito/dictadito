@@ -105,7 +105,7 @@ Estado: hecho el 6 de noviembre de 2026.
 
 ## 3. Después de que los controles automáticos corran por primera vez
 
-En cada ruleset, tildar **Require status checks to pass** → **Add checks** y agregar los tres controles de `.github/workflows/controles.yml`, por nombre:
+En cada ruleset, tildar **Require status checks to pass** → **Add checks** y agregar los tres controles, por nombre: `check` y `secretos` están en `.github/workflows/controles.yml`, y `reglas-del-pull-request` en `.github/workflows/reglas-del-pull-request.yml`, que corre también cuando se edita el título.
 
 | Control                   | Qué revisa                                                                                          |
 | ------------------------- | --------------------------------------------------------------------------------------------------- |
