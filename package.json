@@ -1,0 +1,14 @@
+{
+  "name": "dictadito",
+  "version": "0.0.0",
+  "private": true,
+  "description": "App para docentes, de WIARK Solutions.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22 <23"
+  },
+  "scripts": {
+    "prepare": "node scripts/activar-frenos.cjs",
+    "probar-frenos": "node scripts/probar-frenos.cjs"
+  }
+}

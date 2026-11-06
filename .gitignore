@@ -1,0 +1,34 @@
+# Dependencias y builds
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Variables de entorno: nunca al repo (solo .env.example, con valores falsos)
+.env
+.env.*
+!.env.example
+
+# Datos que nunca entran: audios, copias de base, exportaciones
+*.webm
+*.m4a
+*.mp3
+*.wav
+*.ogg
+*.dump
+*.backup
+backups/
+exports/
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Claude: lo personal de cada compu no se comparte
+.claude/settings.local.json

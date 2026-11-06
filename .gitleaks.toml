@@ -1,0 +1,36 @@
+# Configuración de gitleaks para Dictadito.
+#
+# gitleaks revisa que no se suban claves ni tokens. Lo usan el freno de git (antes de
+# cada commit, en la compu de cada uno) y los controles automáticos de GitHub.
+# Es un área sensible: se cambia solo por pull request.
+#
+# Usa todas las reglas que trae gitleaks y suma las de este proyecto.
+# No hay excepciones por archivo: si un ejemplo dispara el freno, se cambia el ejemplo
+# por un valor que se vea falso.
+
+title = "Dictadito"
+
+[extend]
+useDefault = true
+
+# Postgres de Supabase y cualquier otra base: usuario y contraseña dentro de la URL.
+[[rules]]
+id = "url-de-base-con-clave"
+description = "URL de base de datos con usuario y contraseña"
+regex = '''(?i)\b(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|rediss?|amqps?)://[^\s:/@'"`]+:[^\s@/'"`]+@[^\s/'"`:?]+'''
+keywords = ["postgres", "mysql", "mariadb", "mongodb", "redis", "amqp"]
+
+[[rules.allowlists]]
+description = "Bases locales de desarrollo y valores que se ven falsos"
+regexTarget = "match"
+regexes = [
+  '''@(?:localhost|127\.0\.0\.1|\[::1\]|host\.docker\.internal)$''',
+  ''':(?:<[^>]*>|\$\{[^}]*\}|x{3,}|\*{3,}|cambiar[\w-]*|tu-clave[\w-]*|clave-falsa[\w-]*)@''',
+]
+
+# Claves secretas nuevas de Supabase (las públicas, sb_publishable_, no son secretas).
+[[rules]]
+id = "supabase-clave-secreta"
+description = "Clave secreta de Supabase"
+regex = '''\bsb_secret_[A-Za-z0-9_-]{20,}'''
+keywords = ["sb_secret_"]

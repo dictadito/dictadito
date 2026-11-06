@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.local)",
+      "Read(.env.development)",
+      "Read(.env.development.local)",
+      "Read(.env.test)",
+      "Read(.env.test.local)",
+      "Read(.env.staging)",
+      "Read(.env.production)",
+      "Read(.env.production.local)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/hooks/frenos.cjs\" || exit 2",
+            "timeout": 15,
+            "onFailure": "block"
+          }
+        ]
+      }
+    ]
+  }
+}

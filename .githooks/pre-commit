@@ -1,0 +1,79 @@
+#!/bin/sh
+# =====================================================================
+# FRENO DE GIT: corre antes de cada commit, en la compu de cada uno.
+# Frena a todos, usen Claude o no. Se activa solo con `npm install`,
+# que le dice a git que use esta carpeta (core.hooksPath = .githooks).
+#
+#   1. No deja hacer commits directo en main ni en staging.
+#   2. Revisa con gitleaks que no haya claves ni tokens en el commit.
+#
+# Si te frena, leé el mensaje: dice qué pasó y cómo seguir.
+# Este archivo es un área sensible: se cambia solo por pull request.
+# =====================================================================
+
+rama=$(git symbolic-ref --short -q HEAD)
+
+# 1. main y staging. El primer commit de un repo nuevo (todavía no hay
+#    ningún commit) se permite: es el que crea main.
+if git rev-parse -q --verify HEAD >/dev/null 2>&1; then
+  case "$rama" in
+    main|staging)
+      cat >&2 <<EOF
+
+FRENO: estás en la rama $rama, y en $rama no se hacen commits directo.
+Camino seguro: llevá tus cambios a una rama de trabajo y hacé el commit ahí.
+  git switch -c feature/<tema>     (tus cambios sin guardar viajan con vos)
+  git commit -m "..."
+O pedíselo a Claude con /nueva-tarea.
+
+EOF
+      exit 1
+      ;;
+  esac
+fi
+
+# 2. Claves y tokens.
+if ! command -v gitleaks >/dev/null 2>&1; then
+  cat >&2 <<'EOF'
+
+FRENO: no encontré gitleaks, el programa que revisa que no se suban claves.
+Camino seguro: instalalo, cerrá y volvé a abrir la terminal (y VS Code),
+y hacé el commit de nuevo:
+  winget install --id Gitleaks.Gitleaks -e
+
+EOF
+  exit 1
+fi
+
+gitleaks git --pre-commit --staged --redact --no-banner --verbose --log-level warn --exit-code 3 .
+resultado=$?
+
+if [ "$resultado" -eq 3 ]; then
+  cat >&2 <<'EOF'
+
+FRENO: gitleaks encontró algo que parece una clave o un token en lo que ibas
+a commitear. Arriba dice en qué archivo y en qué línea (la clave aparece tapada).
+Camino seguro:
+  1. Sacá la clave del archivo. Las claves van en tu .env, que nunca se sube.
+  2. Si era un valor de ejemplo, cambialo por uno que se vea falso
+     (por ejemplo "cambiar-esto").
+  3. Volvé a agregar el archivo (git add <archivo>) y hacé el commit de nuevo.
+Si la clave es real, avisale al equipo: aunque no se haya subido, conviene
+cambiarla en el servicio. Si creés que no es una clave, avisá antes de seguir.
+
+EOF
+  exit 1
+fi
+
+if [ "$resultado" -ne 0 ]; then
+  cat >&2 <<EOF
+
+FRENO: gitleaks no pudo revisar el commit (salió con el código $resultado).
+Camino seguro: leé el error de arriba. Si no se entiende, pedile ayuda a
+Claude (agente guia-git) o al equipo. El commit no se hizo.
+
+EOF
+  exit 1
+fi
+
+exit 0
