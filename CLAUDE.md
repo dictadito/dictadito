@@ -12,7 +12,7 @@ Este archivo lo leen las tres sesiones. Se cambia solo por pull request, como cu
 
 ## Antes de tocar nada
 
-1. Mirá el estado: en qué rama estás, si hay cambios sin guardar y si `staging` avanzó.
+1. Mirá el estado: en qué rama estás, si hay cambios sin guardar y si `staging` avanzó (`git fetch`). Hacelo al arrancar cada charla, antes de cada tarea y cuando pasó un rato largo desde la última vez. Si `staging` avanzó, decilo en una línea y proponé ponerse al día con `/sincronizar`; nunca lo hagas sin el OK de la persona.
 2. Si estás en `staging` o en `main`, no edites: proponé `/nueva-tarea`.
 3. Las ramas las decidís vos, no la persona: fijate si lo que piden ya tiene su rama, tuya o de otro, y si su pull request sigue abierto. Según el caso, seguís en esa rama, abrís una nueva desde `staging` o avisás que la tiene otro. Nunca mezcles dos tareas en una rama. El detalle está en `/nueva-tarea`.
 4. Hacé solo lo que te pidieron. Si ves otra cosa para mejorar, mencionala en una línea y no la toques.
