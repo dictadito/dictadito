@@ -24,7 +24,8 @@ El detalle está en [docs/COMO-TRABAJAMOS.md](docs/COMO-TRABAJAMOS.md).
 - Todo sale de `staging` en una rama `feature/`, `fix/`, `chore/` o `docs/`, y vuelve a `staging` por un pull request con los controles en verde.
 - Si el pull request toca algo delicado (lo que figura en `.github/CODEOWNERS`: frenos, reglas para Claude, controles, dependencias, base de datos, IA), lo aprueba otra persona antes de sumarlo. Lo demás entra sin esperar, y otro lo revisa después.
 - A `main` (producción) solo se llega desde `staging`.
-- Comandos del equipo: `/nueva-tarea`, `/sincronizar`, `/listo`. Si alguien se traba con git, usá el agente `guia-git`.
+- Comandos del equipo: `/arrancar` (cómo venís y qué conviene hacer primero), `/nueva-tarea` (empezar o retomar una tarea), `/sincronizar` (traer lo nuevo), `/guardar` (respaldo en tu rama, sin entregar), `/listo` (entregar) y `/seguimiento` (poner al día el plan). Si alguien se traba con git, usá el agente `guia-git`.
+- Proponé estos comandos sin que te los pidan: `/arrancar` al empezar el día, `/guardar` si hay trabajo sin guardar de hace rato o la persona se va, y `/sincronizar` si la versión de prueba avanzó. La persona no tiene que acordarse de ninguno: los puede pedir con sus palabras.
 - Ponerse al día con `staging` se hace con merge, nunca con rebase.
 - Nunca: subir a `staging` o a `main`, forzar un push, reescribir algo que ya está subido, aprobar o mergear pull requests, ni saltear los frenos de git (`--no-verify`).
 
