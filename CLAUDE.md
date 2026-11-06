@@ -64,7 +64,8 @@ Todo lo que se sube lo puede leer cualquiera, para siempre, aunque después se b
 - Los pedidos al backend pasan por el cliente HTTP único de `apps/frontend/src/lib`; nada de `fetch` suelto.
 - Nada de `catch` vacío.
 - Los cambios de base van como migración de Prisma dentro del pull request, y nunca se aplican contra una base que no sea local.
-- Pantallas: mobile first (360 px), con el design system de WIARK.
+- Pantallas: mobile first (360 px), siempre sobre el WIARK Design System. El link está en el plan de trabajo, no en el repo.
+- Antes de armar los estilos generales de Dictadito (colores, letras, botones), preguntale al equipo qué estilo quieren: colores, tono y cómo se tiene que sentir. Lo que decidan se aplica sobre el design system, nunca en su lugar.
 
 ## Antes de dar algo por terminado
 
