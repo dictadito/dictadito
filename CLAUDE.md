@@ -30,6 +30,15 @@ El detalle está en [docs/COMO-TRABAJAMOS.md](docs/COMO-TRABAJAMOS.md).
 
 Si un comando devuelve un mensaje que empieza con `FRENO:`, no busques otra forma de hacer lo mismo. Explicale a la persona qué se frenó, por qué, y cuál es el camino seguro.
 
+## Seguimiento del proyecto
+
+Cómo vamos se ve en la pestaña Seguimiento del plan de trabajo, un artefacto de claude.ai compartido con los tres. Nadie escribe ahí a mano: lo anota Claude.
+
+- El link del plan no va en el repo, porque el repo es público. Lo tenés en tu memoria. Si no lo tenés, pedíselo a la persona y guardalo.
+- Anotá apenas pasa: cuando alguien toma una parte, cuando se entrega o se aprueba un pull request, cuando algo entra a `staging`, y cuando surge una idea o una decisión. Cómo y dónde, en `/seguimiento`.
+- Solo lo que pasó de verdad: lo que se ve en GitHub o lo que la persona te confirma. Nunca borres lo que anotó otro.
+- Si no podés escribir en el plan, decíselo a la persona en una línea y seguí con lo suyo: otro lo pone al día con `/seguimiento`.
+
 ## El repo es público
 
 Todo lo que se sube lo puede leer cualquiera, para siempre, aunque después se borre.

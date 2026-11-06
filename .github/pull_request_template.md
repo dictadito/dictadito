@@ -2,6 +2,8 @@
 
 <!-- En una o dos frases, para alguien que no estuvo en la tarea. -->
 
+**Parte del seguimiento:** <!-- La parte del plan que avanza con esto, por ejemplo "Registro y login". La completa Claude. -->
+
 ## Por qué
 
 <!-- Y el issue que cierra: -->
