@@ -64,8 +64,38 @@ Todo lo que se sube lo puede leer cualquiera, para siempre, aunque después se b
 - Los pedidos al backend pasan por el cliente HTTP único de `apps/frontend/src/lib`; nada de `fetch` suelto.
 - Nada de `catch` vacío.
 - Los cambios de base van como migración de Prisma dentro del pull request, y nunca se aplican contra una base que no sea local.
-- Pantallas: mobile first (360 px), siempre sobre el WIARK Design System. El link está en el plan de trabajo, no en el repo.
-- Antes de armar los estilos generales de Dictadito (colores, letras, botones), preguntale al equipo qué estilo quieren: colores, tono y cómo se tiene que sentir. Lo que decidan se aplica sobre el design system, nunca en su lugar.
+- Pantallas: mobile first (360 px), siempre sobre el WIARK Design System. Las reglas están abajo, en "Design system (WIARK)".
+
+## Design system (WIARK)
+
+La guía completa va a `docs/DESIGN_SYSTEM.md`. Se suma con los estilos generales de Dictadito, que van antes del login; hasta entonces valen estas reglas.
+
+- Antes de armar los estilos generales (colores, letras, botones), preguntale al equipo qué estilo quiere: colores, tono y cómo se tiene que sentir. Lo que decidan va en `theme.css`, sobre el núcleo de WIARK (`tokens.css`), nunca en su lugar.
+- Para cambiar el design system: se propone, lo acuerdan los tres, se cambia primero el documento y después el código.
+
+Seguí estrictamente el design system definido en `docs/DESIGN_SYSTEM.md`. Reglas no negociables:
+
+- Usá SOLO tokens (variables CSS / clases del tema). Nunca colores hex, px sueltos ni z-index arbitrarios en componentes.
+- Espaciado en múltiplos de 4 px. Escala tipográfica: 12/14/16/18/20/24/30/36. Pesos 400/500/600/700.
+- Un solo botón `primary` por vista. Variantes de botón: primary, secondary, outline, ghost, link, destructive.
+- Colores semánticos con significado fijo: success = completado; warning = atención; danger = error o destructivo; info = información. Nunca decorativos.
+- Todo estado se comunica con color + ícono + texto.
+- Mensajes: usá el componente menos intrusivo que alcance (inline < badge < toast < alert < modal).
+- Inputs con label visible arriba, texto de 16 px, error debajo con `aria-describedby`.
+- Toda lista/tabla tiene estado vacío, de carga y de error.
+- Mobile first; probá en 360 px. Área táctil mínima 44 px.
+- Accesibilidad WCAG AA: contraste 4,5:1, foco visible, navegable por teclado, `<button>` para acciones y `<a>` para navegación.
+- Acciones destructivas irreversibles: modal de confirmación con texto específico. Reversibles: toast con "Deshacer".
+- Soportá modo oscuro redefiniendo solo tokens semánticos.
+- Layout: usá los contenedores según el contenido (prose 65ch, narrow 420, form 640, content 1024, page 1280, fluido para tablas/agenda/mapas). Fondo full-bleed, contenido contenido. Espacios con `gap`, no con márgenes.
+- Celular (no negociable): etiqueta viewport `width=device-width, initial-scale=1, viewport-fit=cover`, sin bloquear el zoom; inputs con letra de 16 px o más; `100dvh` en vez de `100vh`; barras de acciones de formularios `sticky` dentro del formulario (no `fixed`); `enterkeyhint` en campos; barras fijas con `env(safe-area-inset-bottom)`; scroll del fondo bloqueado con modales abiertos y `overscroll-behavior: contain`; `overflow-wrap: anywhere` y `min-w-0` para textos largos; nada de anchos fijos en px; reglas para horizontal con poca altura.
+- Responsive: mobile first con `min-width`; breakpoints 640/1024/1280; container queries para componentes reutilizables; nada importante depende del hover; sin scroll horizontal en 360 px.
+- HTML semántico: `header`, `nav`, `main` (uno), `aside`, `footer`; un solo `h1` y títulos sin saltar niveles; `<button>` para acciones, `<a>` para navegar, `<table>` para datos, `<dialog>` para modales; inputs con `type`, `inputmode` y `autocomplete` correctos.
+- Tablas: búsqueda → filtros (chips con "Limpiar todo", en la URL) → orden → acción principal; paginación numerada; selección masiva con barra de acciones; estados vacío, sin resultados, cargando y error.
+- Gráficos: elegí la forma por la pregunta (métrica, línea, barras); nunca dos ejes Y; barras desde cero; paleta categórica en orden fijo; colores de estado nunca como serie; leyenda con 2+ series, tooltip y vista de tabla.
+- Rendimiento: LCP < 2,5 s, INP < 200 ms, CLS < 0,1; JS inicial < 200 KB; skeleton en lugar de pantalla en blanco.
+- Íconos de una sola librería (Lucide), trazo 2 px, 16/20/24 px, `currentColor`. Imágenes con `alt` y dimensiones. Animar solo `transform` y `opacity`.
+- Si necesitás algo que el sistema no cubre, avisá y proponé la solución en lugar de inventarla.
 
 ## Antes de dar algo por terminado
 
