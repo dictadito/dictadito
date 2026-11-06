@@ -45,7 +45,7 @@ Por cada parte que se movió:
 | Alguien abrió su rama para esa parte | `estado`: `en-curso`, y `quien`: esa persona                                                   |
 | Se abrió el pull request             | `estado`: `en-revision`, y `pr`: su número                                                     |
 | Los controles dieron verde           | Tildá "Validaciones compartidas" y "Tests en verde" si el cambio los tiene de verdad           |
-| Lo aprobó otra persona               | Tildá "Pull request aprobado"                                                                  |
+| Otra persona lo revisó               | Tildá "Revisada por otra persona", haya sido antes o después de que entrara                    |
 | Entró a `staging`                    | Tildá "En staging y probada en el celular" solo si alguien confirmó que la probó en el celular |
 | Entró a `main` con una promoción     | Tildá "En producción"                                                                          |
 | Están todos los pasos tildados       | `estado`: `terminado`                                                                          |

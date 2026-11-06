@@ -20,7 +20,8 @@ Este archivo lo leen las tres sesiones. Se cambia solo por pull request, como cu
 
 El detalle está en [docs/COMO-TRABAJAMOS.md](docs/COMO-TRABAJAMOS.md).
 
-- Todo sale de `staging` en una rama `feature/`, `fix/`, `chore/` o `docs/`, y vuelve a `staging` por un pull request que aprueba otra persona.
+- Todo sale de `staging` en una rama `feature/`, `fix/`, `chore/` o `docs/`, y vuelve a `staging` por un pull request con los controles en verde.
+- Si el pull request toca algo delicado (lo que figura en `.github/CODEOWNERS`: frenos, reglas para Claude, controles, dependencias, base de datos, IA), lo aprueba otra persona antes de sumarlo. Lo demás entra sin esperar, y otro lo revisa después.
 - A `main` (producción) solo se llega desde `staging`.
 - Comandos del equipo: `/nueva-tarea`, `/sincronizar`, `/listo`. Si alguien se traba con git, usá el agente `guia-git`.
 - Ponerse al día con `staging` se hace con merge, nunca con rebase.
