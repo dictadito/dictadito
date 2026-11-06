@@ -101,7 +101,7 @@ Dos opciones que GitHub fue sumando:
 - **Require review from specific teams** es para organizaciones con equipos. Nosotros no tenemos: si queda tildada sin revisores, estorba.
 - **Require an additional approval for unattributed Copilot pull requests** solo actúa si Copilot abre un pull request por su cuenta. No lo usamos; tildada no molesta.
 
-Estado: hecho el 6 de noviembre de 2026, salvo **Require status checks**, que es el paso 3.
+Estado: hecho el 6 de noviembre de 2026.
 
 ## 3. Después de que los controles automáticos corran por primera vez
 
@@ -114,6 +114,8 @@ En cada ruleset, tildar **Require status checks to pass** → **Add checks** y a
 | `reglas-del-pull-request` | Título con el formato `tipo: qué cambió`, a `main` solo desde `staging` y ramas con nombre de tarea |
 
 GitHub solo ofrece un control después de que corrió al menos una vez: aparecen cuando se abre el primer pull request. Si se cambia el nombre de un job en el archivo, hay que cambiarlo también acá y en las dos reglas.
+
+Estado: hecho el 6 de noviembre de 2026, después de que los tres corrieran en verde en el pull request #1. Al agregarlos, elegir siempre el que dice **GitHub Actions**: si el buscador ofrece "Add manually", el nombre está mal escrito.
 
 ## Comprobar que quedó bien
 
