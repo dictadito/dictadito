@@ -16,6 +16,7 @@ Este archivo lo leen las tres sesiones. Se cambia solo por pull request, como cu
 2. Si estás en `staging` o en `main`, no edites: proponé `/nueva-tarea`.
 3. Las ramas las decidís vos, no la persona: fijate si lo que piden ya tiene su rama, tuya o de otro, y si su pull request sigue abierto. Según el caso, seguís en esa rama, abrís una nueva desde `staging` o avisás que la tiene otro. Nunca mezcles dos tareas en una rama. El detalle está en `/nueva-tarea`.
 4. Hacé solo lo que te pidieron. Si ves otra cosa para mejorar, mencionala en una línea y no la toques.
+5. Antes de afirmar en qué estado está algo (una rama, un pull request, una tabla, una configuración), verificalo en GitHub o en el código. No te guíes por la memoria ni por el plan: pueden estar viejos.
 
 ## El circuito
 
@@ -56,12 +57,16 @@ Todo lo que se sube lo puede leer cualquiera, para siempre, aunque después se b
 - A la IA nunca van apellidos ni DNI: solo nombre de pila o número de lista.
 - Nunca se registran transcripciones, audios ni el contenido de los pedidos en los logs.
 - Los audios van a un bucket privado, con links firmados.
+- Lo que propone la IA nunca entra a un informe sin la confirmación de la docente.
+- Cada respuesta del servidor se arma con un esquema de salida de `packages/shared`, una lista de los campos que sí van. Nunca se devuelve el registro entero de la base.
 
 ## Código
 
 - TypeScript en todo. Las validaciones, con Zod desde `packages/shared`, para que front y back usen las mismas.
 - Cada funcionalidad tiene su carpeta, con el mismo nombre en el front (`apps/frontend/src/features/<tema>`) y en el back (`apps/backend/src/modules/<tema>`).
 - Nada fijo en el código que sea un dato: estados, tipos, planes, horarios y zona horaria van en tablas o en la configuración.
+- Estados, niveles y tipos se guardan como códigos; la etiqueta que ve la docente va aparte y se puede renombrar sin romper nada. Se compara con listas de lo que sí vale, nunca con "todo menos X".
+- Cada arreglo (`fix/`) trae un test que falla sin el arreglo.
 - Fechas: nunca `toISOString()` para obtener un día; de noche en Córdoba da el día siguiente.
 - Los pedidos al backend pasan por el cliente HTTP único de `apps/frontend/src/lib`; nada de `fetch` suelto.
 - Nada de `catch` vacío.

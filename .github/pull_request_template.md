@@ -25,4 +25,5 @@ Closes #
 
 - [ ] **Cambia una pantalla:** agregué una captura a 360 px y pasé el checklist del design system
 - [ ] **Cambia la base de datos:** la migración está incluida
+- [ ] **Es un arreglo:** trae un test que falla sin el arreglo
 - [ ] **Toca un área sensible** (controles automáticos, frenos, `package.json`, migraciones, módulo de IA, `CLAUDE.md`): quien revise, mirala con más cuidado

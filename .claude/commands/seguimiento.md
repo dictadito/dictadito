@@ -26,7 +26,7 @@ Leé lo que hay, y guardá la versión de cada cosa que vayas a cambiar:
 | `trabajos/<id>`   | Cada parte del proyecto: título, capa, orden, quién, estado, resumen, pasos (`criterios`: `t`, `ok` y `g`, que es `funcion` o `calidad`), lo que falta, rama y número de pull request (`pr`) |
 | `pendientes/<id>` | Otras tareas y decisiones: título, detalle, quién, estado (`haciendo`, `esperando`, `por-hacer` o `hecho`) y orden                                                                           |
 | `ideas/<id>`      | Título, detalle, quién, fecha y estado (`nueva`, `para-charlar`, `aceptada`, `mas-adelante` o `descartada`)                                                                                  |
-| `bitacora/<id>`   | Fecha, número de orden dentro del día (`n`), tipo (`hito`, `avance` o `decision`), título, detalle y quién                                                                                   |
+| `bitacora/<id>`   | Fecha, número de orden dentro del día (`n`), tipo (`hito`, `avance`, `decision` o `incidente`), título, detalle y quién                                                                      |
 
 Las fechas van como `AAAA-MM-DD`, con el día de Córdoba: de noche, la hora de la computadora en UTC ya da el día siguiente.
 
@@ -57,6 +57,8 @@ Los pasos de "qué tiene que hacer" se tildan según lo que muestra el pull requ
 - Una idea nueva va a `ideas`, como `nueva`.
 - Si los tres la aceptan, se suma como pasos a la parte que corresponde, o como una parte nueva en su capa (`id` como `c6-nombre`, con el orden que sigue).
 - Una decisión tomada va a la bitácora, con tipo `decision`.
+- Un incidente (algo que se rompió, una clave que quedó expuesta, datos que se vieron de más) va a la bitácora el mismo día, con tipo `incidente`: qué pasó, qué se hizo y qué se cambia para que no vuelva a pasar. Sin datos reales ni claves.
+- Lo aprendido se suma como paso en la capa donde corresponde, así no se olvida cuando lleguemos.
 
 ## 5. El plan del día
 
