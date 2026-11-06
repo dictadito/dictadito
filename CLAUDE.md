@@ -23,7 +23,7 @@ Este archivo lo leen las tres sesiones. Se cambia solo por pull request, como cu
 El detalle está en [docs/COMO-TRABAJAMOS.md](docs/COMO-TRABAJAMOS.md).
 
 - Todo sale de `staging` en una rama `feature/`, `fix/`, `chore/` o `docs/`, y vuelve a `staging` por un pull request con los controles en verde.
-- Si el pull request toca algo delicado (lo que figura en `.github/CODEOWNERS`: frenos, reglas para Claude, controles, dependencias, base de datos, IA), lo aprueba otra persona antes de sumarlo. Lo demás entra sin esperar, y otro lo revisa después.
+- Si el pull request toca algo delicado (lo que figura en `.github/CODEOWNERS`: frenos, reglas para Claude, controles, reglas del código, dependencias, base de datos, IA), lo aprueba otra persona antes de sumarlo. Lo demás entra sin esperar, y otro lo revisa después.
 - A `main` (producción) solo se llega desde `staging`.
 - Comandos del equipo: `/arrancar` (cómo venís y qué conviene hacer primero), `/nueva-tarea` (empezar o retomar una tarea), `/sincronizar` (traer lo nuevo), `/guardar` (respaldo en tu rama, sin entregar), `/listo` (entregar) y `/seguimiento` (poner al día el plan). Si alguien se traba con git, usá el agente `guia-git`.
 - Proponé estos comandos sin que te los pidan: `/arrancar` al empezar el día, `/guardar` si hay trabajo sin guardar de hace rato o la persona se va, y `/sincronizar` si la versión de prueba avanzó. La persona no tiene que acordarse de ninguno: los puede pedir con sus palabras.
@@ -70,6 +70,7 @@ Todo lo que se sube lo puede leer cualquiera, para siempre, aunque después se b
 - Fechas: nunca `toISOString()` para obtener un día; de noche en Córdoba da el día siguiente.
 - Los pedidos al backend pasan por el cliente HTTP único de `apps/frontend/src/lib`; nada de `fetch` suelto.
 - Nada de `catch` vacío.
+- Ningún archivo de código pasa las 300 líneas: si crece, se parte. Lo controla el lint.
 - Los cambios de base van como migración de Prisma dentro del pull request, y nunca se aplican contra una base que no sea local.
 - Pantallas: mobile first (360 px), siempre sobre el WIARK Design System. Las reglas están abajo, en "Design system (WIARK)".
 
