@@ -45,6 +45,7 @@ Un conflicto es normal: los dos lados cambiaron las mismas líneas y git pregunt
    ```
 
    Explicá en palabras qué cambió cada lado y proponé cómo quedaría combinado.
+
 3. **La decisión es de la persona.** Si lo que llegó de `staging` es trabajo de otra persona y no está claro qué hacer, sugerí preguntarle antes.
 4. Con el OK, editá el archivo y dejá la versión acordada, sin las marcas `<<<<<<<`, `=======` y `>>>>>>>`.
 5. `git add <archivo>`, de a un archivo.

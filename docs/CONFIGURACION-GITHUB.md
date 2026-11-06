@@ -74,29 +74,46 @@ En un repo de cuenta personal, los colaboradores pueden subir ramas, abrir y mer
 
 **Settings → Rules → Rulesets → New ruleset → New branch ruleset.** Se crean dos, uno por rama:
 
-| Opción                                                              | `staging`          | `main`             |
-| ------------------------------------------------------------------- | ------------------ | ------------------ |
-| Ruleset name                                                        | `proteger-staging` | `proteger-main`    |
-| Enforcement status                                                  | Active             | Active             |
-| Bypass list                                                         | vacía              | vacía              |
-| Target branches                                                     | `staging`          | `main`             |
-| Restrict deletions                                                  | sí                 | sí                 |
-| Block force pushes                                                  | sí                 | sí                 |
-| Require a pull request before merging                               | sí                 | sí                 |
-| · Required approvals                                                | 1                  | 1                  |
-| · Dismiss stale pull request approvals when new commits are pushed  | sí                 | sí                 |
-| · Require review from Code Owners                                   | sí                 | sí                 |
-| · Require approval of the most recent reviewable push               | sí                 | sí                 |
-| · Require conversation resolution before merging                    | sí                 | sí                 |
-| · Allowed merge methods                                             | solo Squash        | solo Merge         |
-| Require status checks to pass                                       | sí (ver paso 3)    | sí (ver paso 3)    |
-| · Require branches to be up to date before merging                  | sí                 | **no**             |
+| Opción                                                                  | `staging`          | `main`          |
+| ----------------------------------------------------------------------- | ------------------ | --------------- |
+| Ruleset name                                                            | `proteger-staging` | `proteger-main` |
+| Enforcement status                                                      | Active             | Active          |
+| Bypass list                                                             | vacía              | vacía           |
+| Target branches                                                         | `staging`          | `main`          |
+| Restrict deletions                                                      | sí                 | sí              |
+| Block force pushes                                                      | sí                 | sí              |
+| Require a pull request before merging                                   | sí                 | sí              |
+| · Required approvals                                                    | 1                  | 1               |
+| · Dismiss stale pull request approvals when new commits are pushed      | sí                 | sí              |
+| · Require review from specific teams                                    | **no**             | **no**          |
+| · Require review from Code Owners                                       | sí                 | sí              |
+| · Require approval of the most recent reviewable push                   | sí                 | sí              |
+| · Require conversation resolution before merging                        | sí                 | sí              |
+| · Require an additional approval for unattributed Copilot pull requests | sí                 | sí              |
+| · Allowed merge methods                                                 | solo Squash        | solo Merge      |
+| Require status checks to pass                                           | sí (ver paso 3)    | sí (ver paso 3) |
+| · Require branches to be up to date before merging                      | sí                 | **no**          |
 
 En `main` no se exige "rama actualizada": con merge commits, esa opción trabaría cada promoción.
 
+Dos opciones que GitHub fue sumando:
+
+- **Require review from specific teams** es para organizaciones con equipos. Nosotros no tenemos: si queda tildada sin revisores, estorba.
+- **Require an additional approval for unattributed Copilot pull requests** solo actúa si Copilot abre un pull request por su cuenta. No lo usamos; tildada no molesta.
+
+Estado: hecho el 6 de noviembre de 2026, salvo **Require status checks**, que es el paso 3.
+
 ## 3. Después de que los controles automáticos corran por primera vez
 
-En cada ruleset, en **Require status checks to pass → Add checks**, se agregan los controles por nombre. Los nombres exactos quedan definidos cuando armemos los controles automáticos (capa 1, parte 4); GitHub solo los ofrece después de que corrieron al menos una vez.
+En cada ruleset, tildar **Require status checks to pass** → **Add checks** y agregar los tres controles de `.github/workflows/controles.yml`, por nombre:
+
+| Control                   | Qué revisa                                                                                          |
+| ------------------------- | --------------------------------------------------------------------------------------------------- |
+| `check`                   | `npm run check`: formato, reglas del código, tipos, tests, la batería de los frenos y el build      |
+| `secretos`                | gitleaks sobre toda la historia, con las reglas de `.gitleaks.toml`                                 |
+| `reglas-del-pull-request` | Título con el formato `tipo: qué cambió`, a `main` solo desde `staging` y ramas con nombre de tarea |
+
+GitHub solo ofrece un control después de que corrió al menos una vez: aparecen cuando se abre el primer pull request. Si se cambia el nombre de un job en el archivo, hay que cambiarlo también acá y en las dos reglas.
 
 ## Comprobar que quedó bien
 
