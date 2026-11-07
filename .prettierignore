@@ -4,3 +4,7 @@ build/
 coverage/
 package-lock.json
 apps/backend/prisma/migrations/
+
+# Los frenos: protegidos, se prueban con su propia batería
+.claude/hooks/
+.claude/settings*.json
