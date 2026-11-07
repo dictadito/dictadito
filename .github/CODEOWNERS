@@ -1,15 +1,22 @@
 # Dueños de código de las áreas sensibles (ver docs/decisiones/0002-duenos-de-codigo.md).
 # GitHub les pide revisión a estas personas cuando un pull request toca estas rutas.
 #
+# Los comandos y agentes de .claude/ no están: guían, pero no frenan nada, y los frenos los cubren igual.
+#
 # Luca (lukag11), Silvi (silvibacci) y Julián (jmreyneri). Los tres tienen que tener permiso de escritura en el repo: si no, GitHub no les pide revisión.
 
 /.github/                 @lukag11 @silvibacci @jmreyneri
-/.claude/                 @lukag11 @silvibacci @jmreyneri
+/.claude/hooks/           @lukag11 @silvibacci @jmreyneri
+/.claude/settings.json    @lukag11 @silvibacci @jmreyneri
 /.githooks/               @lukag11 @silvibacci @jmreyneri
 /.gitleaks.toml           @lukag11 @silvibacci @jmreyneri
 /scripts/                 @lukag11 @silvibacci @jmreyneri
 /package.json             @lukag11 @silvibacci @jmreyneri
 /package-lock.json        @lukag11 @silvibacci @jmreyneri
+/apps/backend/package.json   @lukag11 @silvibacci @jmreyneri
+/apps/frontend/package.json  @lukag11 @silvibacci @jmreyneri
+/packages/shared/package.json @lukag11 @silvibacci @jmreyneri
+/eslint.config.js         @lukag11 @silvibacci @jmreyneri
 /apps/backend/prisma/     @lukag11 @silvibacci @jmreyneri
 /apps/backend/src/ia/     @lukag11 @silvibacci @jmreyneri
 /CLAUDE.md                @lukag11 @silvibacci @jmreyneri

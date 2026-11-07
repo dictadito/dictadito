@@ -43,7 +43,7 @@ Si hay cambios sin guardar:
   - ¿Hay un issue? Va como `Closes #N`.
   - Si cambió una pantalla: ¿tiene la captura a 360 px? Se agrega después en GitHub, arrastrándola al pull request.
   - Si cambió la base de datos: ¿está la migración de Prisma?
-  - ¿Toca un área sensible? Son `.github/`, `.claude/`, `.githooks/`, `.gitleaks.toml`, `scripts/`, `package.json`, las migraciones, `apps/backend/src/ia/` y `CLAUDE.md`.
+  - ¿Toca un área sensible? Son `.github/`, los frenos de Claude (`.claude/hooks/` y `.claude/settings.json`), `.githooks/`, `.gitleaks.toml`, `scripts/`, los `package.json`, `eslint.config.js`, las migraciones, `apps/backend/src/ia/` y `CLAUDE.md`.
   - ¿Quedó documentación vieja por este cambio?
 - Mostrá el resumen: rama, commits, título y texto del pull request. Esperá el OK.
 
@@ -60,9 +60,13 @@ Si hay cambios sin guardar:
   - cómo lo probó;
   - las casillas tildadas solo si son ciertas.
 
-Escribí el texto en un archivo temporal fuera del repo y corré:
+Escribí el texto en un archivo temporal fuera del repo. Después fijate si la rama ya tiene propuesta, porque `/guardar` la abre como borrador: `gh pr view <rama> --json number,isDraft,url`.
 
-`gh pr create --base staging --head <rama> --title "<título>" --body-file <archivo>`
+- **Ya tiene:** completala y sacala de borrador.
+  - `gh pr edit <número> --title "<título>" --body-file <archivo>`
+  - `gh pr ready <número>`: recién ahí se pide la revisión.
+- **No tiene:** abrila.
+  - `gh pr create --base staging --head <rama> --title "<título>" --body-file <archivo>`
 
 Si `gh` no está instalado o no tiene la sesión iniciada, no te trabes. Dale a la persona este link para abrirlo desde el navegador, con el título y el texto listos para pegar:
 

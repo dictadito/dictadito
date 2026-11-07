@@ -29,6 +29,7 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 
 # Claude: lo personal de cada compu no se comparte
 .claude/settings.local.json
