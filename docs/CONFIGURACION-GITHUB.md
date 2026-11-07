@@ -24,7 +24,7 @@ La hace Luca, que es el único que entra a la cuenta `dictadito`. Queda escrita 
   - Allow squash merging: **sí** (para sumar tareas a `staging`), con Default commit message: **Pull request title**
   - Allow rebase merging: **no**
   - Always suggest updating pull request branches: **sí**
-  - Allow auto-merge: **no**
+  - Allow auto-merge: **sí** (desde el 7 de noviembre: GitHub suma la propuesta sola cuando se cumple todo lo que piden las reglas; ver la [decisión 0003](decisiones/0003-sumar-sin-trabar.md))
   - Automatically delete head branches: **sí** (borra la rama de la tarea después de sumarla)
 
 ### Colaboradores
@@ -92,9 +92,11 @@ En un repo de cuenta personal, los colaboradores pueden subir ramas, abrir y mer
 | · Require an additional approval for unattributed Copilot pull requests | sí                 | sí              |
 | · Allowed merge methods                                                 | solo Squash        | solo Merge      |
 | Require status checks to pass                                           | sí (ver paso 3)    | sí (ver paso 3) |
-| · Require branches to be up to date before merging                      | sí                 | **no**          |
+| · Require branches to be up to date before merging                      | **no**             | **no**          |
 
 En `main` no se exige "rama actualizada": con merge commits, esa opción trabaría cada promoción.
+
+En `staging` tampoco, desde el 7 de noviembre: con la suma automática, esa opción la dejaría esperando cada vez que entra otra propuesta antes, hasta que alguien toque **Update branch**. La combinación se prueba igual, porque los controles corren en `staging` después de cada suma.
 
 En `staging` se piden **0 aprobaciones**: lo normal entra con los controles en verde, y otro lo revisa después. Lo delicado igual necesita el OK de otro, porque **Require review from Code Owners** pide la aprobación de un dueño de código cuando el pull request toca algo de `.github/CODEOWNERS`. **Require approval of the most recent reviewable push** queda apagada en `staging` porque, con 0 aprobaciones, pediría una igual. En `main` se pide siempre 1 aprobación.
 
@@ -103,7 +105,7 @@ Dos opciones que GitHub fue sumando:
 - **Require review from specific teams** es para organizaciones con equipos. Nosotros no tenemos: si queda tildada sin revisores, estorba.
 - **Require an additional approval for unattributed Copilot pull requests** solo actúa si Copilot abre un pull request por su cuenta. No lo usamos; tildada no molesta.
 
-Estado: hecho el 6 de noviembre de 2026. Ese mismo día, las aprobaciones de `staging` pasaron a 0, salvo lo delicado.
+Estado: hecho el 6 de noviembre de 2026. Ese mismo día, las aprobaciones de `staging` pasaron a 0, salvo lo delicado. El 7 de noviembre, `staging` dejó de exigir la rama actualizada.
 
 ## 3. Después de que los controles automáticos corran por primera vez
 
@@ -129,3 +131,5 @@ Desde tu cuenta personal, no desde `dictadito`:
 - [ ] Uno a `main` no se puede sumar sin aprobación.
 - [ ] Un pull request a `staging` solo ofrece **Squash and merge**; uno a `main`, solo **Create a merge commit**.
 - [ ] Si alguien sube un commit después de una aprobación, la aprobación se cae.
+- [ ] Un pull request con los controles corriendo, o esperando un OK, ofrece **Enable auto-merge**.
+- [ ] Si `staging` avanzó, un pull request se puede sumar sin tocar **Update branch**.

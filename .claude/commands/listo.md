@@ -59,6 +59,15 @@ Si hay cambios sin guardar:
   - `Closes #N`, o sin esa línea si no hay issue;
   - cómo lo probó;
   - las casillas tildadas solo si son ciertas.
+- **Si toca un área sensible,** arriba de todo, antes de la plantilla, un bloque para quien aprueba. Lo va a leer en el celular, así que son tres líneas en palabras simples:
+
+  ```markdown
+  > **Para quien aprueba**
+  >
+  > - **Qué cambia:** …
+  > - **Por qué es delicada:** toca … (por ejemplo, las reglas para Claude o la base de datos)
+  > - **Qué mirar:** …
+  ```
 
 Escribí el texto en un archivo temporal fuera del repo. Después fijate si la rama ya tiene propuesta, porque `/guardar` la abre como borrador: `gh pr view <rama> --json number,isDraft,url`.
 
@@ -78,13 +87,17 @@ Para instalar `gh`: `winget install --id GitHub.cli -e` y después `gh auth logi
 
 - Pasale el link del pull request.
 - Contale lo que sigue:
-  - Otra persona lo revisa.
+  - **Si es delicado,** otro de los tres lo aprueba antes de que entre. Les llega el aviso a la app de GitHub del celular.
+  - **Si no,** entra con los controles en verde y otro lo revisa después.
   - Si le piden cambios, los hace en esta misma rama y con `git push` el pull request se actualiza solo.
   - Si sube algo después de que lo aprueben, la aprobación se cae y hay que pedirla de nuevo.
-- Cuando esté aprobado y con los controles en verde, la persona toca **Squash and merge** en GitHub. Eso no lo hace Claude.
+- **Para que entre sin trabar a nadie,** la persona toca en el pull request, en la compu o en la app del celular:
+  - Si los controles todavía corren o falta el OK: **Enable auto-merge** y confirma. GitHub la suma sola cuando se cumple todo, aunque nadie esté mirando.
+  - Si ya está todo en verde: **Squash and merge** directo.
+- Eso lo toca la persona, no Claude.
 
 ## Nunca
 
-- Subir a `staging` o `main`, forzar un push, aprobar ni mergear. El freno los bloquea igual.
+- Subir a `staging` o `main`, forzar un push, aprobar, mergear ni activar la suma automática. El freno los bloquea igual.
 - `git add .` o `git commit -a`.
 - Si aparece un mensaje que empieza con `FRENO:`, no busques otra forma de hacer lo mismo: explicá qué se frenó, por qué, y cuál es el camino seguro.
