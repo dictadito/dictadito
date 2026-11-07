@@ -8,7 +8,8 @@ Este es el repositorio de trabajo del equipo. Es público, pero **no se aceptan 
 - Cómo funciona (guía rápida): [docs/GUIA.md](docs/GUIA.md)
 - Cómo trabajamos: [docs/COMO-TRABAJAMOS.md](docs/COMO-TRABAJAMOS.md)
 - Orden de construcción: [docs/CAPAS.md](docs/CAPAS.md)
-- Pantallas y datos (capa 0): [docs/PANTALLAS.md](docs/PANTALLAS.md)
+- Pantallas y alcance de la primera versión: [docs/PANTALLAS.md](docs/PANTALLAS.md)
+- Quién hace qué en la primera versión: [docs/PLAN-PRIMERA-VERSION.md](docs/PLAN-PRIMERA-VERSION.md)
 - Decisiones tomadas: [docs/decisiones/](docs/decisiones/)
 - Configuración de GitHub: [docs/CONFIGURACION-GITHUB.md](docs/CONFIGURACION-GITHUB.md)
 

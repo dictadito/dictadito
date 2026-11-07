@@ -1,6 +1,6 @@
 # Pantallas de Dictadito
 
-Capa 0 de [CAPAS.md](CAPAS.md): las pantallas, qué hace cada una y qué datos necesita. Pendiente de aprobación del dueño del producto.
+Capas 0 y 1 de [CAPAS.md](CAPAS.md): qué entra en la primera versión, las pantallas, qué hace cada una y qué datos necesita. Pendiente de aprobación de Luca y Julián. Quién hace qué está en [PLAN-PRIMERA-VERSION.md](PLAN-PRIMERA-VERSION.md).
 
 ## Para qué sirve la app
 
@@ -12,6 +12,25 @@ Funciona para dos niveles, cada uno con su escala:
 - **Primario:** Logrado (L) / En proceso (EP) / Pendiente (P) / Proyecto Pedagógico para la Inclusión (PPI).
 
 **Orden mínimo para empezar a dictar:** Registro → Tu escuela → Tu sala → Mi sala → Proyectos → Dictar. Lo demás se puede cargar después.
+
+## Primera versión (alcance)
+
+- **Niveles:** inicial y primario.
+- **Usuarios:** solo docentes. La directiva se suma en la segunda parte, junto con Mi escuela. Hasta entonces, el registro no ofrece el rol de directiva.
+- **Siete pantallas:**
+
+| #   | Pantalla de la primera versión                | Filas de la tabla de abajo |
+| --- | --------------------------------------------- | -------------------------- |
+| 1   | Registro, escuela, sala y selector de espacio | 1, 2, 3 y 4                |
+| 2   | Mi sala                                       | 5                          |
+| 3   | Diagnóstico                                   | 6                          |
+| 4   | Proyectos y rúbricas                          | 7                          |
+| 5   | Dictar                                        | 8                          |
+| 6   | Importar desde papel                          | 9                          |
+| 7   | Informes                                      | 11                         |
+
+- **Importar desde papel se construye última.** Es la más incierta de las siete: si el tiempo no alcanza, pasa a la segunda parte sin dejar a nadie sin informe.
+- **Quedan para después:** Qué falta, Historial, Mi escuela (directiva) y Ajustes.
 
 ## Las pantallas
 
