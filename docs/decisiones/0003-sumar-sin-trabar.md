@@ -6,9 +6,8 @@
 
 ## Decisión
 
-- **Suma automática activada** (**Allow auto-merge**). Al entregar, quien hizo la tarea toca **Enable auto-merge** y GitHub la suma sola cuando se cumple todo: los controles en verde y, si era delicada, el OK de otro.
+- **Nadie espera a que otro la sume.** Se activó la suma automática (**Allow auto-merge**). Al entregar, quien hizo la tarea toca **Enable auto-merge** y GitHub la suma sola cuando se cumple todo: los controles en verde y, si era delicada, el OK de otro. Si ya está todo en verde, la suma esa misma persona con **Squash and merge**.
 - **`staging` ya no exige que la rama esté al día** (**Require branches to be up to date before merging**: no). Ya no hace falta tocar **Update branch** cada vez que entra otra propuesta antes.
-- **Cada uno suma lo suyo.** Lo que no es delicado no espera a nadie.
 - **El OK, desde el celular.** Cada uno tiene la app de GitHub, que avisa cuando un compañero necesita su OK. Para poder decidir desde ahí, `/listo` escribe arriba de cada propuesta delicada un bloque **Para quien aprueba**: qué cambia, por qué es delicada y qué conviene mirar.
 
 ## Por qué
