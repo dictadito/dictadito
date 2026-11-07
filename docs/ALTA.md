@@ -2,7 +2,7 @@
 
 Para Silvi, Julián y cualquiera que se sume después. Arrancamos todos igual, desde cero, aunque cada uno ya tenga su forma de trabajar en otros proyectos.
 
-**No vas a escribir comandos.** Lo de GitHub se hace a mano en la página (pasos 1 y 2), y el resto son mensajes que le pegás a Claude en VS Code (pasos 3 a 6). Claude hace todo y te va explicando.
+**No vas a escribir comandos.** Lo de GitHub se hace a mano, en la página y en el celular (pasos 1, 2 y 7), y el resto son mensajes que le pegás a Claude en VS Code (pasos 3 a 6). Claude hace todo y te va explicando.
 
 Si algo no sale como dice acá, preguntale a Claude ahí mismo, con tus palabras. Si sigue sin salir, avisale a Luca. No improvises con la configuración: varios de estos pasos son los que hacen que los frenos funcionen.
 
@@ -35,7 +35,7 @@ La invitación vence a los 7 días. Si venció, pedile a Luca que te la reenvíe
 - Tildá **Block command line pushes that expose my email**.
 - Copiá la dirección que termina en `@users.noreply.github.com` y guardala: Claude te la pide en el paso 4.
 
-Los pasos 3 y 4 se hacen cuando Luca avise que el proyecto está listo: son unos 20 minutos, de corrido. El 6, cuando avise que la base de la app ya está sumada.
+Los pasos 3 y 4 se hacen cuando Luca avise que el proyecto está listo: son unos 20 minutos, de corrido. El 6, cuando avise que la base de la app ya está sumada. El 7, cuando quieras.
 
 ## 3. Prepará la compu (con Claude)
 
@@ -99,11 +99,24 @@ Hola Claude. Ya tengo Dictadito abierto. Dos cosas:
 
 Primero tiene que aparecer el `FRENO:`. Si no aparece, pará y avisale a Luca: sin frenos andando no se trabaja.
 
-Después Claude te muestra un resumen, te pide el OK y te da un link. Esta propuesta no toca nada delicado, así que no espera aprobación: con los controles en verde, abrí el link y tocá el botón verde **Squash and merge** y después **Confirm**. Igual mandá el link al grupo, para que alguien lo mire.
+Después Claude te muestra un resumen, te pide el OK y te da un link. Esta propuesta no toca nada delicado, así que no espera aprobación. Abrí el link: si los controles todavía están corriendo, tocá **Enable auto-merge** y confirmá, y se suma sola cuando terminen en verde. Si ya están en verde, tocá **Squash and merge** y después **Confirm**. Igual mandá el link al grupo, para que alguien lo mire.
 
 Si otro sumó su línea antes que vos, Claude te va a avisar que hay un conflicto. Es a propósito: pedile que te ayude a resolverlo.
 
 Listo: ya estás trabajando en Dictadito. Cómo es el día a día: [GUIA.md](GUIA.md).
+
+## 7. Bajá la app de GitHub en el celular (a mano)
+
+Para dar el OK desde donde estés cuando un compañero lo necesita, sin que nadie quede trabado. Son cinco minutos.
+
+1. **Bajala.** En la **App Store** (iPhone) o **Google Play** (Android), buscá **GitHub** e instalá la oficial, de GitHub, Inc. Es gratis.
+2. **Entrá con tu cuenta.** Abrila, tocá **Iniciar sesión** y entrá con tu cuenta personal y la verificación en dos pasos. Nunca con `dictadito`.
+3. **Permití los avisos.** Cuando pregunte si te puede mandar notificaciones, tocá **Permitir**. Si no te llegan: **Perfil** → **Configuración** → **Notificaciones** y activá las **Solicitudes de revisión**.
+4. **Aprobá.** Cuando te llegue el aviso, tocalo y se abre la propuesta. Leé arriba el bloque **Para quien aprueba** y, si está todo bien, **Revisar cambios** → **Aprobar** → **Enviar**.
+
+Si tu celular está en inglés, la app también: **Sign in**, **Profile** → **Settings** → **Notifications** → **Review requests**, y para aprobar **Review changes** → **Approve** → **Submit**.
+
+Si algo no se entiende, no apruebes: preguntá en el grupo. Y si la app no anda, desde la compu se aprueba igual: en la propuesta, **Files changed** → **Review changes** → **Approve** → **Submit review**.
 
 ## Nunca
 
@@ -128,6 +141,7 @@ Por si hay que revisar algo a mano.
 | 4    | `nvm install 22` y `nvm use 22` (Node 22 es la versión fijada para el proyecto); `gh auth login` y `gh auth setup-git`; `git clone https://github.com/dictadito/dictadito.git`; `git config user.name`, `user.email` y `pull.rebase false`; `npm install`, que activa el freno de git (`core.hooksPath` = `.githooks`); `npm run probar-frenos` |
 | 5    | Ninguno: Claude escucha, ordena y arma el resumen para mandárselo a Luca                                                                                                                                                                                                                                                                        |
 | 6    | `git push origin main`, que el freno de Claude bloquea; `/nueva-tarea` y `/listo`                                                                                                                                                                                                                                                               |
+| 7    | Ninguno: es en el celular                                                                                                                                                                                                                                                                                                                       |
 
 ## Listo cuando
 
@@ -137,3 +151,4 @@ Por si hay que revisar algo a mano.
 - [ ] Si conocés el tema, le contaste a Claude de qué se trata Dictadito
 - [ ] Claude mostró `FRENO:` cuando le pediste subir a `main`
 - [ ] Tu pull request de práctica está sumado a `staging`
+- [ ] Tenés la app de GitHub en el celular, con los avisos activados

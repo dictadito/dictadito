@@ -37,7 +37,7 @@ Nadie trabaja directo en `staging` ni en `main`. GitHub no lo permite.
 5. **`/sincronizar`** si `staging` avanzó mientras trabajabas. Usa merge, nunca rebase: así nadie tiene que forzar un push.
 6. **`/listo`.** Corre `npm run check`, completa la propuesta con la plantilla y la deja lista para revisar.
 7. **Revisión.** Controles automáticos en verde. Si toca algo delicado, espera la aprobación de otra persona; si no, entra y otro lo revisa después. Si subís algo después de que te aprueben, la aprobación se cae.
-8. **Squash a `staging`.** Con todo en verde, y la aprobación si era algo delicado. Un commit por tarea. Se despliega solo en staging y se prueba ahí.
+8. **Squash a `staging`.** Con todo en verde, y la aprobación si era algo delicado. Un commit por tarea. Lo suma quien hizo la tarea, sin esperar a nadie. Mejor todavía: al entregar, tocá **Enable auto-merge** y GitHub la suma sola cuando se cumple todo. Se despliega solo en staging y se prueba ahí.
 9. **Promoción.** Pull request de `staging` a `main` con merge commit, aprobado por otra persona.
 
 - Si los controles fallan o te piden cambios: volvés a tu rama, corregís y subís. El pull request se actualiza solo.
@@ -67,7 +67,11 @@ Lo que no pasa por GitHub, como una idea o el relato de cómo funciona algo, tu 
 
 ## Revisar el pull request de otro
 
-Plazo: lo delicado, en el día; lo demás, en menos de 24 horas hábiles. Se puede aprobar desde el celular, con la app de GitHub. Antes de aprobar, fijate:
+Plazo: lo delicado, en el día; lo demás, en menos de 24 horas hábiles.
+
+**Desde el celular:** con la app de GitHub te llega el aviso cuando un compañero necesita tu OK. Leés el bloque **Para quien aprueba** que va arriba de la propuesta y, si está todo bien, **Revisar cambios** → **Aprobar** → **Enviar**. Si tenía la suma automática activada, entra sola. Cómo bajar la app: paso 7 de [ALTA.md](ALTA.md). Por qué trabajamos así: [decisión 0003](decisiones/0003-sumar-sin-trabar.md).
+
+Antes de aprobar, fijate:
 
 - ¿Entendés qué cambia y por qué? Si no, preguntá en el pull request.
 - ¿Los controles automáticos están en verde?
@@ -76,7 +80,7 @@ Plazo: lo delicado, en el día; lo demás, en menos de 24 horas hábiles. Se pue
 - Si cambia la base: ¿está la migración?
 - Si toca un área sensible (controles automáticos, frenos, reglas del código en `eslint.config.js`, los `package.json`, migraciones, módulo de IA, `CLAUDE.md`): mirala con más cuidado.
 
-Comentarios concretos, sobre el código y no sobre la persona. Al final: **Approve** o **Request changes**.
+Comentarios concretos, sobre el código y no sobre la persona. Al final: **Approve** o **Request changes**. Si algo no se entiende desde el celular, no se aprueba: se pregunta en el grupo o se mira con Claude en la compu.
 
 El agente `revisor-pr` te puede ayudar a revisar, pero la aprobación es tuya.
 

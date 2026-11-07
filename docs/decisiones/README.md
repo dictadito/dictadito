@@ -10,3 +10,4 @@ Cada decisión importante queda en un archivo numerado, para que dentro de seis 
 | -------------------------------- | -------------------------- | -------- |
 | [0001](0001-repo-publico.md)     | Repo público               | Decidido |
 | [0002](0002-duenos-de-codigo.md) | Dueños de código: los tres | Decidido |
+| [0003](0003-sumar-sin-trabar.md) | Sumar sin trabar a nadie   | Decidido |
