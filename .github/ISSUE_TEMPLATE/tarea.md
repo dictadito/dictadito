@@ -1,7 +1,7 @@
 ---
 name: Tarea
 about: Algo para hacer en Dictadito
-title: ""
+title: ''
 labels: []
 assignees: []
 ---

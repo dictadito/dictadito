@@ -1,6 +1,6 @@
 ---
 description: Entrega la tarea. Guarda lo que falta, corre los controles, sube tu rama y abre el pull request contra staging.
-argument-hint: "[número del issue, si hay]"
+argument-hint: '[número del issue, si hay]'
 ---
 
 # /listo

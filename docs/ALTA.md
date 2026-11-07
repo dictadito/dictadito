@@ -110,11 +110,11 @@ Listo: ya estás trabajando en Dictadito. Cómo es el día a día: [GUIA.md](GUI
 
 Por si hay que revisar algo a mano.
 
-| Paso | Comandos                                                                                                                                                                                                                                                                  |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 3    | `winget install --id Git.Git -e`, lo mismo con `CoreyButler.NVMforWindows`, `Gitleaks.Gitleaks` y `GitHub.cli`; `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force` (sin esto, PowerShell no deja correr `npm`)                                                    |
+| Paso | Comandos                                                                                                                                                                                                                                                                                                                                        |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 3    | `winget install --id Git.Git -e`, lo mismo con `CoreyButler.NVMforWindows`, `Gitleaks.Gitleaks` y `GitHub.cli`; `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force` (sin esto, PowerShell no deja correr `npm`)                                                                                                                        |
 | 4    | `nvm install 22` y `nvm use 22` (Node 22 es la versión fijada para el proyecto); `gh auth login` y `gh auth setup-git`; `git clone https://github.com/dictadito/dictadito.git`; `git config user.name`, `user.email` y `pull.rebase false`; `npm install`, que activa el freno de git (`core.hooksPath` = `.githooks`); `npm run probar-frenos` |
-| 5    | `git push origin main`, que el freno de Claude bloquea; `/nueva-tarea` y `/listo`                                                                                                                                                                                          |
+| 5    | `git push origin main`, que el freno de Claude bloquea; `/nueva-tarea` y `/listo`                                                                                                                                                                                                                                                               |
 
 ## Listo cuando
 
