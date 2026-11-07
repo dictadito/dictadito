@@ -10,6 +10,7 @@ Este es el repositorio de trabajo del equipo. Es público, pero **no se aceptan 
 - Orden de construcción: [docs/CAPAS.md](docs/CAPAS.md)
 - Pantallas y alcance de la primera versión: [docs/PANTALLAS.md](docs/PANTALLAS.md)
 - Quién hace qué en la primera versión: [docs/PLAN-PRIMERA-VERSION.md](docs/PLAN-PRIMERA-VERSION.md)
+- Bocetos de la primera versión (capa 1): [docs/BOCETOS.md](docs/BOCETOS.md)
 - Decisiones tomadas: [docs/decisiones/](docs/decisiones/)
 - Configuración de GitHub: [docs/CONFIGURACION-GITHUB.md](docs/CONFIGURACION-GITHUB.md)
 
