@@ -85,7 +85,7 @@ La guía completa va a `docs/DESIGN_SYSTEM.md`. Se suma con los estilos generale
 - Antes de armar los estilos generales (colores, letras, botones), preguntale al equipo qué estilo quiere: colores, tono y cómo se tiene que sentir. Lo que decidan va en `theme.css`, sobre el núcleo de WIARK (`tokens.css`), nunca en su lugar.
 - Para cambiar el design system: se propone, lo acuerdan los tres, se cambia primero el documento y después el código.
 
-Seguí estrictamente el design system definido en `docs/DESIGN_SYSTEM.md`. Reglas no negociables:
+Cuando exista `docs/DESIGN_SYSTEM.md`, seguilo estrictamente. Hasta entonces, valen las reglas de abajo, que no son negociables y siguen valiendo después:
 
 - Usá SOLO tokens (variables CSS / clases del tema). Nunca colores hex, px sueltos ni z-index arbitrarios en componentes.
 - Espaciado en múltiplos de 4 px. Escala tipográfica: 12/14/16/18/20/24/30/36. Pesos 400/500/600/700.
