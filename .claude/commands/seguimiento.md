@@ -11,9 +11,11 @@ Cómo hablar: español rioplatense, simple, sin tecnicismos. Al final, un resume
 
 ## 1. Encontrar el plan
 
+Este comando lo corre el Claude de quien administra el plan: la fuente es GitHub, y desde ahí se pasa al plan lo que hicieron todos.
+
 - El link del plan de trabajo está en tu memoria. Si no está, pedíselo a la persona y guardalo. Nunca lo escribas en el repo.
 - Se escribe con las herramientas de artefactos de claude.ai: la base de datos del plan. Si figuran como herramientas diferidas, cargalas primero.
-- Si no tenés esas herramientas, o el plan no te deja escribir, decíselo a la persona en una línea y pará acá.
+- Si no tenés esas herramientas, o el plan no te deja leer ni escribir, es normal: el plan se compartió desde otra cuenta de claude.ai. Decile a la persona en una línea que lo pone al día quien lo administra, y pará acá. Si quería anotar algo ("$ARGUMENTS"), armale un texto corto para que se lo mande.
 
 ## 2. Leer antes de escribir
 
@@ -33,22 +35,22 @@ Las fechas van como `AAAA-MM-DD`, con el día de Córdoba: de noche, la hora de 
 ## 3. Mirar GitHub
 
 ```
-gh pr list --state all --limit 30 --json number,title,headRefName,baseRefName,state,reviewDecision,mergedAt,body
+gh pr list --state all --limit 30 --json number,title,author,headRefName,baseRefName,state,isDraft,reviewDecision,mergedAt,body
 ```
 
 Cada pull request dice a qué parte corresponde en la línea **Parte del seguimiento**. Si no la tiene, guiate por el título y la rama. Si igual no queda claro, preguntale a la persona.
 
 Por cada parte que se movió:
 
-| Lo que pasó                          | Qué cambia                                                                                     |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| Alguien abrió su rama para esa parte | `estado`: `en-curso`, y `quien`: esa persona                                                   |
-| Se abrió el pull request             | `estado`: `en-revision`, y `pr`: su número                                                     |
-| Los controles dieron verde           | Tildá "Validaciones compartidas" y "Tests en verde" si el cambio los tiene de verdad           |
-| Otra persona lo revisó               | Tildá "Revisada por otra persona", haya sido antes o después de que entrara                    |
-| Entró a `staging`                    | Tildá "En staging y probada en el celular" solo si alguien confirmó que la probó en el celular |
-| Entró a `main` con una promoción     | Tildá "En producción"                                                                          |
-| Están todos los pasos tildados       | `estado`: `terminado`                                                                          |
+| Lo que pasó                                                       | Qué cambia                                                                                     |
+| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Hay una propuesta en borrador para esa parte (la abre `/guardar`) | `estado`: `en-curso`, `quien`: quien la abrió, `rama` y `pr`                                   |
+| La propuesta pasó a lista para revisar (`/listo`)                 | `estado`: `en-revision`, y `pr`: su número                                                     |
+| Los controles dieron verde                                        | Tildá "Validaciones compartidas" y "Tests en verde" si el cambio los tiene de verdad           |
+| Otra persona lo revisó                                            | Tildá "Revisada por otra persona", haya sido antes o después de que entrara                    |
+| Entró a `staging`                                                 | Tildá "En staging y probada en el celular" solo si alguien confirmó que la probó en el celular |
+| Entró a `main` con una promoción                                  | Tildá "En producción"                                                                          |
+| Están todos los pasos tildados                                    | `estado`: `terminado`                                                                          |
 
 Los pasos de "qué tiene que hacer" se tildan según lo que muestra el pull request, o lo que confirma la persona. Ante la duda, no tildes: anotalo en `falta`.
 

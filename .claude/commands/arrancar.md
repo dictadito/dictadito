@@ -25,7 +25,9 @@ Cómo hablar: español rioplatense, simple, sin tecnicismos. Primero el resumen;
 
 ## 3. El plan
 
-Si tenés el link del plan en la memoria, leé "Hoy" (`estado/hoy`) y lo que esta persona tiene en el seguimiento. Si "Hoy" no es de hoy, ofrecé armarlo con ella (ver `/seguimiento`).
+Si tenés el link del plan en la memoria y podés leerlo, leé "Hoy" (`estado/hoy`) y lo que esta persona tiene en el seguimiento. Si "Hoy" no es de hoy, ofrecé armarlo con ella, y si en GitHub hay novedades que el plan no tiene, ofrecé ponerlo al día (ver `/seguimiento`).
+
+Si no podés leerlo, es normal (el plan se compartió desde otra cuenta de claude.ai): seguí con lo de GitHub, que alcanza.
 
 ## 4. El resumen
 

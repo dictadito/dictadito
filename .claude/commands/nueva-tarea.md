@@ -82,8 +82,9 @@ Explicale las dos partes:
 - Contale cómo sigue:
   - Trabajan juntos en la tarea. Cuando algo quede andando, le vas a proponer un commit chico con el formato `tipo: qué cambió`.
   - Si `staging` avanza mientras tanto: `/sincronizar`.
-  - Para entregar: `/listo`, que abre el pull request.
-- Anotá en el seguimiento del plan que esa parte la tiene esta persona, con su rama (ver `/seguimiento`).
+  - Apenas haya algo hecho: `/guardar`, que lo sube y abre la propuesta en borrador. Así los demás ven en qué está.
+  - Para entregar: `/listo`, que la deja lista para revisar.
+- Si podés escribir en el plan, anotá que esa parte la tiene esta persona, con su rama (ver `/seguimiento`). Si no, queda visible en GitHub con el primer `/guardar`.
 
 ## Nunca
 

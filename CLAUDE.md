@@ -25,7 +25,7 @@ El detalle está en [docs/COMO-TRABAJAMOS.md](docs/COMO-TRABAJAMOS.md).
 - Todo sale de `staging` en una rama `feature/`, `fix/`, `chore/` o `docs/`, y vuelve a `staging` por un pull request con los controles en verde.
 - Si el pull request toca algo delicado (lo que figura en `.github/CODEOWNERS`: frenos, reglas para Claude, controles, reglas del código, dependencias, base de datos, IA), lo aprueba otra persona antes de sumarlo. Lo demás entra sin esperar, y otro lo revisa después.
 - A `main` (producción) solo se llega desde `staging`.
-- Comandos del equipo: `/arrancar` (cómo venís y qué conviene hacer primero), `/nueva-tarea` (empezar o retomar una tarea), `/sincronizar` (traer lo nuevo), `/guardar` (respaldo en tu rama, sin entregar), `/listo` (entregar) y `/seguimiento` (poner al día el plan). Si alguien se traba con git, usá el agente `guia-git`.
+- Comandos del equipo: `/arrancar` (cómo venís y qué conviene hacer primero), `/nueva-tarea` (empezar o retomar una tarea), `/sincronizar` (traer lo nuevo), `/guardar` (respaldo en tu rama y propuesta en borrador), `/listo` (entregar) y `/seguimiento` (poner al día el plan, desde la compu de quien lo administra). Si alguien se traba con git, usá el agente `guia-git`.
 - Proponé estos comandos sin que te los pidan: `/arrancar` al empezar el día, `/guardar` si hay trabajo sin guardar de hace rato o la persona se va, y `/sincronizar` si la versión de prueba avanzó. La persona no tiene que acordarse de ninguno: los puede pedir con sus palabras.
 - Ponerse al día con `staging` se hace con merge, nunca con rebase.
 - Nunca: subir a `staging` o a `main`, forzar un push, reescribir algo que ya está subido, aprobar o mergear pull requests, ni saltear los frenos de git (`--no-verify`).
@@ -36,12 +36,16 @@ Si un comando devuelve un mensaje que empieza con `FRENO:`, no busques otra form
 
 ## Seguimiento del proyecto
 
-Cómo vamos se ve en la pestaña Seguimiento del plan de trabajo, un artefacto de claude.ai compartido con los tres. Nadie escribe ahí a mano: lo anota Claude.
+Cómo vamos se ve en la pestaña Seguimiento del plan de trabajo, un artefacto de claude.ai. Nadie escribe ahí a mano.
 
-- El link del plan no va en el repo, porque el repo es público. Lo tenés en tu memoria. Si no lo tenés, pedíselo a la persona y guardalo.
-- Anotá apenas pasa: cuando alguien toma una parte, cuando se entrega o se aprueba un pull request, cuando algo entra a `staging`, y cuando surge una idea o una decisión. Cómo y dónde, en `/seguimiento`.
-- Solo lo que pasó de verdad: lo que se ve en GitHub o lo que la persona te confirma. Nunca borres lo que anotó otro.
-- Si no podés escribir en el plan, decíselo a la persona en una línea y seguí con lo suyo: otro lo pone al día con `/seguimiento`.
+**La fuente es GitHub.** Lo que hace cada uno queda ahí: su propuesta en borrador, la entrega, la aprobación y lo que entra a `staging`. El Claude de quien administra el plan lo pasa al plan con `/seguimiento`.
+
+- Para que se vea en qué está cada uno, el trabajo se guarda en GitHub con `/guardar` apenas hay algo hecho. La primera vez abre la propuesta como borrador, con la parte del seguimiento en la descripción.
+- Cada propuesta dice a qué parte corresponde, en la línea **Parte del seguimiento**.
+- Lo que no pasa por GitHub, como una idea, una decisión o el relato de cómo funciona algo, armalo en un texto corto para que la persona se lo mande a quien administra el plan.
+- Solo escribe en el plan el Claude que puede hacerlo. Si no podés leerlo ni escribirlo, es normal (el plan se compartió desde otra cuenta de claude.ai): no insistas y seguí con GitHub.
+- El link del plan no va en el repo, porque el repo es público.
+- Solo lo que pasó de verdad: lo que se ve en GitHub o lo que la persona confirma. Nunca borres lo que anotó otro.
 
 ## El repo es público
 
