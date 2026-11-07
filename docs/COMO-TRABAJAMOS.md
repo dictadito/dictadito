@@ -45,14 +45,14 @@ Nadie trabaja directo en `staging` ni en `main`. GitHub no lo permite.
 
 `tipo: qué cambió`, en minúscula y en español.
 
-| Tipo       | Cuándo                                 | Ejemplo                                       |
-| ---------- | -------------------------------------- | --------------------------------------------- |
-| `feat`     | Algo nuevo para quien usa la app       | `feat: botón para volver a grabar`            |
-| `fix`      | Un arreglo                             | `fix: el informe mostraba el día siguiente`   |
-| `docs`     | Documentación                          | `docs: cómo correr la base local`             |
-| `test`     | Solo tests                             | `test: casos de rúbricas sin indicadores`     |
-| `refactor` | Cambia el código sin cambiar qué hace  | `refactor: separar el cliente de la IA`       |
-| `chore`    | Mantenimiento (dependencias, configs)  | `chore: actualizar vitest`                    |
+| Tipo       | Cuándo                                | Ejemplo                                     |
+| ---------- | ------------------------------------- | ------------------------------------------- |
+| `feat`     | Algo nuevo para quien usa la app      | `feat: botón para volver a grabar`          |
+| `fix`      | Un arreglo                            | `fix: el informe mostraba el día siguiente` |
+| `docs`     | Documentación                         | `docs: cómo correr la base local`           |
+| `test`     | Solo tests                            | `test: casos de rúbricas sin indicadores`   |
+| `refactor` | Cambia el código sin cambiar qué hace | `refactor: separar el cliente de la IA`     |
+| `chore`    | Mantenimiento (dependencias, configs) | `chore: actualizar vitest`                  |
 
 ## Revisar el pull request de otro
 
@@ -84,13 +84,13 @@ El agente `revisor-pr` te puede ayudar a revisar, pero la aprobación es tuya.
 
 ## Frenos
 
-| Capa | Qué es                  | Qué frena                                                                                                                      |
-| ---- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| 1    | Reglas de GitHub        | Subir directo a `staging` o `main`, mergear sin aprobación o con controles en rojo, forzar un push, borrar esas ramas            |
-| 2    | Controles automáticos   | Formato, tipos, tests, build, claves en el código, migraciones rotas, pull requests a `main` que no salen de `staging`         |
-| 3    | Freno de Claude         | Que Claude suba a `staging` o `main`, fuerce un push, saltee los frenos de git, haga rebase, edite o haga commits en `staging` o `main`, apruebe o mergee pull requests, toque un `.env`, borre en masa, apunte a una base que no es local, publique desde la terminal o modifique el propio freno |
-| 4    | Freno de git            | Commits directo en `staging` o `main` y commits con claves (gitleaks). Frena a todos, con o sin Claude                       |
-| 5    | Agentes y comandos      | No frenan: guían                                                                                                               |
+| Capa | Qué es                | Qué frena                                                                                                                                                                                                                                                                                          |
+| ---- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | Reglas de GitHub      | Subir directo a `staging` o `main`, mergear sin aprobación o con controles en rojo, forzar un push, borrar esas ramas                                                                                                                                                                              |
+| 2    | Controles automáticos | Formato, tipos, tests, build, claves en el código, migraciones rotas, pull requests a `main` que no salen de `staging`                                                                                                                                                                             |
+| 3    | Freno de Claude       | Que Claude suba a `staging` o `main`, fuerce un push, saltee los frenos de git, haga rebase, edite o haga commits en `staging` o `main`, apruebe o mergee pull requests, toque un `.env`, borre en masa, apunte a una base que no es local, publique desde la terminal o modifique el propio freno |
+| 4    | Freno de git          | Commits directo en `staging` o `main` y commits con claves (gitleaks). Frena a todos, con o sin Claude                                                                                                                                                                                             |
+| 5    | Agentes y comandos    | No frenan: guían                                                                                                                                                                                                                                                                                   |
 
 Las capas 1 y 2 no se pueden saltear desde ninguna compu. Si ves un mensaje `FRENO:`, no busques la vuelta: preguntá.
 

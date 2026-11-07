@@ -4,11 +4,37 @@
   "private": true,
   "description": "App para docentes, de WIARK Solutions.",
   "license": "UNLICENSED",
+  "type": "module",
   "engines": {
     "node": ">=22 <23"
   },
+  "workspaces": [
+    "packages/shared",
+    "apps/backend",
+    "apps/frontend"
+  ],
   "scripts": {
     "prepare": "node scripts/activar-frenos.cjs",
-    "probar-frenos": "node scripts/probar-frenos.cjs"
+    "probar-frenos": "node scripts/probar-frenos.cjs",
+    "dev:backend": "npm run dev -w @dictadito/backend",
+    "dev:frontend": "npm run dev -w @dictadito/frontend",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:frenos": "node .claude/hooks/frenos.test.cjs --resumen",
+    "build": "npm run build --workspaces --if-present",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run test:frenos && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
   }
 }
