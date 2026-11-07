@@ -59,7 +59,7 @@ Si hace falta contexto, leé los archivos completos del repo, no solo el pedazo 
 - Pantallas: mobile first (360 px). Si cambia una pantalla, tiene la captura.
 - La documentación que el cambio deja vieja está actualizada en el mismo pull request.
 
-**Áreas sensibles:** `.github/`, `.claude/`, `.githooks/`, `.gitleaks.toml`, `scripts/`, `package.json`, las migraciones, `apps/backend/src/ia/` y `CLAUDE.md`. Si el pull request toca alguna, avisalo arriba de todo y miralo con más cuidado: ¿debilita algún freno o control?
+**Áreas sensibles:** `.github/`, los frenos de Claude (`.claude/hooks/` y `.claude/settings.json`), `.githooks/`, `.gitleaks.toml`, `scripts/`, los `package.json`, `eslint.config.js` (las reglas del código), las migraciones, `apps/backend/src/ia/` y `CLAUDE.md`. Si el pull request toca alguna, avisalo arriba de todo y miralo con más cuidado: ¿debilita algún freno o control?
 
 ## 3. Devolvé
 
