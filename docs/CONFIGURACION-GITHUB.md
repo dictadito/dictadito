@@ -83,11 +83,11 @@ En un repo de cuenta personal, los colaboradores pueden subir ramas, abrir y mer
 | Restrict deletions                                                      | sí                 | sí              |
 | Block force pushes                                                      | sí                 | sí              |
 | Require a pull request before merging                                   | sí                 | sí              |
-| · Required approvals                                                    | 1                  | 1               |
+| · Required approvals                                                    | **0**              | 1               |
 | · Dismiss stale pull request approvals when new commits are pushed      | sí                 | sí              |
 | · Require review from specific teams                                    | **no**             | **no**          |
 | · Require review from Code Owners                                       | sí                 | sí              |
-| · Require approval of the most recent reviewable push                   | sí                 | sí              |
+| · Require approval of the most recent reviewable push                   | **no**             | sí              |
 | · Require conversation resolution before merging                        | sí                 | sí              |
 | · Require an additional approval for unattributed Copilot pull requests | sí                 | sí              |
 | · Allowed merge methods                                                 | solo Squash        | solo Merge      |
@@ -96,12 +96,14 @@ En un repo de cuenta personal, los colaboradores pueden subir ramas, abrir y mer
 
 En `main` no se exige "rama actualizada": con merge commits, esa opción trabaría cada promoción.
 
+En `staging` se piden **0 aprobaciones**: lo normal entra con los controles en verde, y otro lo revisa después. Lo delicado igual necesita el OK de otro, porque **Require review from Code Owners** pide la aprobación de un dueño de código cuando el pull request toca algo de `.github/CODEOWNERS`. **Require approval of the most recent reviewable push** queda apagada en `staging` porque, con 0 aprobaciones, pediría una igual. En `main` se pide siempre 1 aprobación.
+
 Dos opciones que GitHub fue sumando:
 
 - **Require review from specific teams** es para organizaciones con equipos. Nosotros no tenemos: si queda tildada sin revisores, estorba.
 - **Require an additional approval for unattributed Copilot pull requests** solo actúa si Copilot abre un pull request por su cuenta. No lo usamos; tildada no molesta.
 
-Estado: hecho el 6 de noviembre de 2026.
+Estado: hecho el 6 de noviembre de 2026. Ese mismo día, las aprobaciones de `staging` pasaron a 0, salvo lo delicado.
 
 ## 3. Después de que los controles automáticos corran por primera vez
 
@@ -122,6 +124,8 @@ Estado: hecho el 6 de noviembre de 2026, después de que los tres corrieran en v
 Desde tu cuenta personal, no desde `dictadito`:
 
 - [ ] Un push directo a `staging` es rechazado.
-- [ ] Un pull request sin aprobación no habilita el botón de merge.
+- [ ] Un pull request a `staging` que no toca nada delicado se puede sumar con los controles en verde, sin aprobación.
+- [ ] Uno que toca algo delicado no se puede sumar sin la aprobación de otro.
+- [ ] Uno a `main` no se puede sumar sin aprobación.
 - [ ] Un pull request a `staging` solo ofrece **Squash and merge**; uno a `main`, solo **Create a merge commit**.
 - [ ] Si alguien sube un commit después de una aprobación, la aprobación se cae.
